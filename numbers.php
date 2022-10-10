@@ -1,3 +1,5 @@
+<?php
+
 //? NUMBERS
 
 $radius = 25;

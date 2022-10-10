@@ -1,8 +1,10 @@
 <?php
 
 //?  VARIABLES
+
 //? defining a const
 define('NAME', 'Josh');
+
 //? defining a variable
 $age = 30;
 
@@ -19,13 +21,7 @@ $age = 30;
 </head>
 
 <body>
-    <h2><?php
-        // echo NAME . " is " . $age . " years old.";
-        // echo $stringOne . $stringTwo;
-        // echo "Josh is $age years old and his email is $stringTwo";
-        // echo $shout;
-        // echo $shout2;
-        ?></h2>
+
 </body>
 
 </html>

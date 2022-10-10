@@ -1,3 +1,5 @@
+<?php
+
 //? STRINGS
 $stringOne = 'My email is ';
 $stringTwo = 'josh@localhost.com';
