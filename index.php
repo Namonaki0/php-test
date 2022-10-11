@@ -8,6 +8,16 @@ define('NAME', 'Josh');
 //? defining a variable
 $age = 30;
 
+
+$blogs = [
+    ['title' => 'title1', 'author' => 'author1', 'content' => 'lorem', 'likes' => 20],
+    ['title' => 'title2', 'author' => 'author2', 'content' => 'lorem', 'likes' => 30],
+    ['title' => 'title3', 'author' => 'author3', 'content' => 'lorem', 'likes' => 45],
+    ['title' => 'title4', 'author' => 'author4', 'content' => 'lorem', 'likes' => 60],
+];
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +31,7 @@ $age = 30;
 </head>
 
 <body>
+
 
 </body>
 
