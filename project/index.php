@@ -1,12 +1,5 @@
 <?php
 
-//?  VARIABLES
-
-//? defining a const
-define('NAME', 'Josh');
-
-//? defining a variable
-$age = 30;
 
 ?>
 
