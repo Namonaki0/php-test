@@ -1,12 +1,15 @@
 <?php
 
-//?  VARIABLES
+// MySQLi - MySQL Improved
+// PDO - PHP Data Objects
 
-//? defining a const
-define('NAME', 'Josh');
+//? Connect to database via MySQLi
+$connection = mysqli_connect("localhost", "andy", "4mfMxYaFvDV83ay", "pizza_order");
 
-//? defining a variable
-$age = 30;
+//? Check connection
+if (!$connection) {
+    echo "Connection error: " . mysqli_connect_error();
+}
 
 ?>
 
@@ -14,9 +17,9 @@ $age = 30;
 <html lang="en">
 
 
-<?php include("templates/header.php"); ?>
+<?php include("project/templates/header.php"); ?>
 
-<?php include("templates/footer.php"); ?>
+<?php include("project/templates/footer.php"); ?>
 
 
 </html>
