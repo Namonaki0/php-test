@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+
+$name = $_SESSION['name'];
+
+?>
+
+
 <head>
     <title>pizza order</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -23,6 +32,7 @@
         <div class="container">
             <a href="#" class="brand-logo brand-text blue-text">Pizza Order Place</a>
             <ul id="nav-mobile" class="right hide-on-small-and-down">
+                <li class="grey-text">Hello <?php echo htmlspecialchars($name); ?></li>
                 <li><a href="#" class="btn brand z-depth-0">Add a Pizza</a></li>
             </ul>
         </div>

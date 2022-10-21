@@ -1,18 +1,31 @@
 <?php
 
-// ternary operators
+//? ternary operators
 
 $score = 40;
 
-// if ($score > 30) {
-//     echo "yes";
-// } else {
-//     echo "no";
-// }
-
 $val = $score > 20 ? "yes" : "no";
+echo $val . "<br />";
 
-echo $val;
+
+//? superglobals
+
+echo $_SERVER['SERVER_NAME'] . "<br />";
+echo $_SERVER['REQUEST_METHOD'] . "<br />";
+echo $_SERVER['SCRIPT_FILENAME'] . "<br />";
+echo $_SERVER['PHP_SELF'] . "<br />";
+
+
+//? sessions
+
+if (isset($_POST['submit'])) {
+
+    session_start();
+
+    $_SESSION['name'] = $_POST['name'];
+
+    echo $_SESSION['name'];
+}
 
 ?>
 
@@ -29,6 +42,12 @@ echo $val;
 <body>
 
     <p><?php echo $score > 50 ? "yes" : "no"; ?></p>
+
+
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+        <input type="text" name="name" />
+        <input type="submit" name="submit" value="submit" />
+    </form>
 
 </body>
 
