@@ -5,12 +5,12 @@
 
 
 //? Connect to database via MySQLi
-$connection = mysqli_connect("localhost", "root", "4mfMxYaFvDV83ay", "pizza_order");
+// $connection = mysqli_connect("localhost", "root", "4mfMxYaFvDV83ay", "pizza_order");
 
 //? Check connection
-if (!$connection) {
-    echo "Connection error: " . mysqli_connect_error();
-}
+// if (!$connection) {
+//     echo "Connection error: " . mysqli_connect_error();
+// }
 
 ?>
 
