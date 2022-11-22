@@ -40,19 +40,38 @@ mysqli_close($connection);
 
 <div class="container">
     <div class="row">
-        <?php foreach ($pizzas as $pizza) { ?>
+        <?php foreach ($pizzas as $pizza) : ?>
         <div class="col s6 sm3">
             <div class="card z-depth-0">
                 <div class="card-content center">
                     <h4><?php echo htmlspecialchars($pizza['title']); ?></h4>
-                    <div><?php echo htmlspecialchars($pizza['ingredients']); ?></div>
+                    <ul>
+                        <?php foreach (explode(',', $pizza['ingredients']) as $ingredient) : ?>
+                        <li><?php echo htmlspecialchars($ingredient) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
                 </div>
                 <div class="card-action right-align">
                     <a href="#" class="brand-text">more info</a>
                 </div>
             </div>
         </div>
+        <?php endforeach; ?>
+
+        <!-- old syntax -->
+        <?php if (count($pizzas) >= 2) { ?>
+        <p>there are 2 or more pizzas</p>
+        <?php } else { ?>
+        <p>there are less than 2 pizzas</p>
         <?php } ?>
+
+        <!-- new syntax -->
+        <?php if (count($pizzas) >= 2) : ?>
+        <p>there are 2 or more pizzas</p>
+        <?php else : ?>
+        <p>there are less than 2 pizzas</p>
+        <?php endif; ?>
+
     </div>
 
 </div>
