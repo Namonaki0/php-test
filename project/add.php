@@ -1,5 +1,7 @@
 <?php
 
+include("config/db_connect.php");
+
 $email = $title = $ingredients = "";
 $errors = ["email" => "", "title" => "", "ingredients" => ""];
 
@@ -50,7 +52,21 @@ if (isset($_POST["submit"])) {
     if (array_filter($errors)) {
         // errors will display
     } else {
-        header("Location: ../index.php");
+        $email = mysqli_real_escape_string($connection, $_POST["email"]);
+        $title = mysqli_real_escape_string($connection, $_POST["title"]);
+        $ingredients = mysqli_real_escape_string($connection, $_POST["ingredients"]);
+
+        // create sql
+        $sql = "INSERT INTO pizzas(title,email,ingredients) VALUES('$title', '$email', '$ingredients')";
+
+        // save to db and check
+        if (mysqli_query($connection, $sql)) {
+            // success
+            header("Location: index.php");
+        } else {
+            // error
+            echo 'error' . mysqli_error($connection);
+        }
     }
 } // end of POST check
 
@@ -61,7 +77,7 @@ if (isset($_POST["submit"])) {
 <html lang="en">
 
 
-<?php require("../templates/header.php"); ?>
+<?php require("templates/header.php"); ?>
 
 <section class="container grey-text">
     <h4 class="center">Add a Pizza</h4>
@@ -87,7 +103,7 @@ if (isset($_POST["submit"])) {
     </form>
 </section>
 
-<?php require("../templates/footer.php"); ?>
+<?php require("templates/footer.php"); ?>
 
 
 </html>

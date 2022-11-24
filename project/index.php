@@ -3,13 +3,7 @@
 // MySQLi - MySQL Improved
 // PDO - PHP Data Objects
 
-//? Connect to database via MySQLi
-$connection = mysqli_connect("localhost:3307", "root", "", "pizzas");
-
-//? Check connection
-if (!$connection) {
-    echo "Connection error: " . mysqli_connect_error();
-}
+include("config/db_connect.php");
 
 //? write query for all pizzas
 $sql = 'SELECT title, ingredients, id FROM pizzas ORDER BY created_at';
