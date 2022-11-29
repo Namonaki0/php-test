@@ -5,6 +5,7 @@ class User
     public $username;
     // access modifier
     private $email;
+    public $role = 'member';
 
     public function __construct($username, $email)
     {
@@ -15,6 +16,11 @@ class User
     public function addCredential()
     {
         return "$this->username added a new credential";
+    }
+
+    public function message()
+    {
+        return "$this->email sent a message";
     }
 
     // getters
@@ -32,8 +38,27 @@ class User
     }
 }
 
+class UserAdmin extends User
+{
+
+    public $level;
+
+    public function __construct($username, $email, $level)
+    {
+        $this->level = $level;
+        parent::__construct($username, $email);
+    }
+}
+
 $userOne = new User('James', 'james@email.com');
 $userTwo = new User('Steve', 'steve@email.com');
+$userThree = new UserAdmin('Roger', 'roger@email.com', 'high');
+
+echo $userThree->username . '<br>';
+echo $userThree->getEmail() . '<br>';
+echo $userThree->level . '<br>';
+
+echo $userThree->message() . '<br>';
 
 // echo 'the class belongs to ' . get_class($userOne) . '<br>';
 // echo $userOne->username . '<br>';
