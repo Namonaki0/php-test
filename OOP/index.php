@@ -4,13 +4,23 @@ class User
 {
     public $username;
     // access modifier
-    private $email;
+    protected $email;
     public $role = 'member';
 
     public function __construct($username, $email)
     {
         $this->username = $username;
         $this->email = $email;
+    }
+
+    public function __destruct()
+    {
+        echo "$this->username was removed <br>";
+    }
+
+    public function __clone()
+    {
+        $this->username = $this->username . " cloned <br>";
     }
 
     public function addCredential()
@@ -42,11 +52,17 @@ class UserAdmin extends User
 {
 
     public $level;
+    public $role = "admin";
 
     public function __construct($username, $email, $level)
     {
         $this->level = $level;
         parent::__construct($username, $email);
+    }
+
+    public function message()
+    {
+        return "$this->email, sent a message as admin";
     }
 }
 
@@ -59,6 +75,9 @@ echo $userThree->getEmail() . '<br>';
 echo $userThree->level . '<br>';
 
 echo $userThree->message() . '<br>';
+
+$userFour = clone $userOne;
+echo $userFour->username;
 
 // echo 'the class belongs to ' . get_class($userOne) . '<br>';
 // echo $userOne->username . '<br>';
@@ -78,8 +97,6 @@ print_r(get_class_vars('User'));
 print_r(get_class_methods('User'));
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
