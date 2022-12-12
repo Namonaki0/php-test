@@ -1,8 +1,13 @@
 <?php
+
+require('user_validator.php');
+
 if (isset($_POST['submit'])) {
-    echo 'form submitted';
+    // validate entries
+    $validation = new UserValidator($_POST);
+    $errors = $validation->validateForm();
 }
-echo '';
+
 ?>
 
 <!DOCTYPE html>
@@ -22,10 +27,18 @@ echo '';
         <h2>Create new user</h2>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
             <label for="username">Username:</label>
-            <input type="text" name="username" autocomplete="off">
+            <input type="text" name="username" autocomplete="off"
+                value="<?php echo htmlspecialchars($_POST['username']) ?? '' ?>">
+            <div class="error">
+                <?php echo $errors['username'] ?? '' ?>
+            </div>
 
             <label for="email">Email:</label>
-            <input type="email" name="email" autocomplete="off">
+            <input type="email" name="email" autocomplete="off"
+                value="<?php echo htmlspecialchars($_POST['email']) ?? '' ?>">
+            <div class="error">
+                <?php echo $errors['email'] ?? '' ?>
+            </div>
 
             <input type="submit" value="Submit" name="submit">
         </form>

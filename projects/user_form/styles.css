@@ -64,3 +64,6 @@ input[type='submit']:hover{
   background: rgb(253, 135, 92);
   width: 100%;
 }
+.error {
+  color: rgb(255, 70, 70);
+}
